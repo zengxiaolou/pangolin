@@ -8,7 +8,7 @@ before_script:
 publish:
   stage: publish
   tags:
-    - docker
+    - shell
   script:
     - echo "${CI_REGISTRY_IMAGE}"
     - docker build --pull -t $CI_REGISTRY_IMAGE:latest docker
