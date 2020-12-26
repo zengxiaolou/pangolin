@@ -1,10 +1,12 @@
-image: docker:19.03.12
-services:
-  - docker:19.03.12-dind
-
 stages:
   - build
   - publish
+
+image: docker:19.03.12
+services:
+  - docker:19.03.12-dind
+tags:
+  - docker
 
 variables:
   # Use TLS https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#tls-enabled
