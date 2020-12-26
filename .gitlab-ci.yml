@@ -1,9 +1,4 @@
-image: docker:19.03.12
-services:
-  - docker:19.03.12-dind
-
 stages:
-  - build
   - publish
 
 variables:
@@ -15,14 +10,15 @@ variables:
 before_script:
   - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
 
-build:
-  stage: build
+publish:
+  stage: publish
+  image: docker:19.03.12
+  services:
+    - docker:19.03.12-dind
+  tags:
+    - docker
   script:
     - docker build --pull -t $CONTAINER_IMAGE_TAG docker
-
-publish-image:
-  stage: publish
-  script:
     - docker push $CONTAINER_IMAGE_TAG
   only:
     - master
