@@ -2,7 +2,6 @@ stages:
   - publish
 
 before_script:
-  - echo "${CI_REGISTRY}"
   - sudo docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
 
 publish:
@@ -10,7 +9,5 @@ publish:
   tags:
     - shell
   script:
-    - echo "${CI_REGISTRY_IMAGE}"
-    - sudo su
     - sudo docker build --pull -t $CI_REGISTRY_IMAGE:latest docker
     - sudo docker push $CI_REGISTRY_IMAGE:latest
