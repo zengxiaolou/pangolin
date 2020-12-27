@@ -15,10 +15,21 @@ publish:
   only:
     - master
 
-deploy:
+deploy_hk:
   stage: deploy
   tags:
     - shell
+    - vpn-hk
+  script:
+    - ./deploy.sh
+  only:
+    - master
+
+deploy_tw:
+  stage: deploy
+  tags:
+    - shell
+    - vpn-tw
   script:
     - ./deploy.sh
   only:
