@@ -5,10 +5,8 @@
   "log": {
     // By default, V2Ray writes access log to stdout.
     "access": "/var/log/v2ray/access.log",
-
     // By default, V2Ray write error log to stdout.
     "error": "/var/log/v2ray/error.log",
-
     // Log level, one of "debug", "info", "warning", "error", "none"
     "loglevel": "debug"
   },
@@ -25,11 +23,13 @@
       "settings": {
         "clients": [
           {
-            "id": "eaaba7a6-0833-4db7-adef-e50f0e9233aa",  // 用户 ID，客户端与服务器必须相同
+            "id": "eaaba7a6-0833-4db7-adef-e50f0e9233aa",
+            // 用户 ID，客户端与服务器必须相同
             "alterId": 64
           },
           {
-            "id": "1b4e6d3c-530a-4274-a08a-e782b8b60065",  // 用户 ID，客户端与服务器必须相同
+            "id": "1b4e6d3c-530a-4274-a08a-e782b8b60065",
+            // 用户 ID，客户端与服务器必须相同
             "alterId": 64
           }
         ]
@@ -61,70 +61,70 @@
   //"transport": {},
 
   // Routing controls how traffic from inbounds are sent to outbounds.
-//  "routing": {
-//    "domainStrategy": "IPOnDemand",
-//    "rules": [
-//      {
-//        // Blocks access to private IPs. Remove this if you want to access your router.
-//        "type": "field",
-//        "ip": [
-//          "geoip:private"
-//        ],
-//        "outboundTag": "blocked"
-//      },
-//      {
-//        // Blocks major ads.
-//        "type": "field",
-//        "domain": [
-//          "geosite:category-ads"
-//        ],
-//        "outboundTag": "blocked"
-//      }
-//    ]
-//  },
+  //  "routing": {
+  //    "domainStrategy": "IPOnDemand",
+  //    "rules": [
+  //      {
+  //        // Blocks access to private IPs. Remove this if you want to access your router.
+  //        "type": "field",
+  //        "ip": [
+  //          "geoip:private"
+  //        ],
+  //        "outboundTag": "blocked"
+  //      },
+  //      {
+  //        // Blocks major ads.
+  //        "type": "field",
+  //        "domain": [
+  //          "geosite:category-ads"
+  //        ],
+  //        "outboundTag": "blocked"
+  //      }
+  //    ]
+  //  },
   // Dns settings for domain resolution.
-//  "dns": {
-//    // Static hosts, similar to hosts file.
-//    "hosts": {
-//      // Match v2ray.com to another domain on CloudFlare. This domain will be used when querying IPs for v2ray.com.
-//      "domain:v2ray.com": "www.vicemc.net",
-//      // The following settings help to eliminate DNS poisoning in mainland China.
-//      // It is safe to comment these out if this is not the case for you.
-//      "domain:github.io": "pages.github.com",
-//      "domain:wikipedia.org": "www.wikimedia.org",
-//      "domain:shadowsocks.org": "electronicsrealm.com"
-//    },
-//    "servers": [
-//      "1.1.1.1",
-//      {
-//        "address": "114.114.114.114",
-//        "port": 53,
-//        // List of domains that use this DNS first.
-//        "domains": [
-//          "geosite:cn"
-//        ]
-//      },
-//      "8.8.8.8",
-//      "localhost"
-//    ]
-//  },
-//  // Policy controls some internal behavior of how V2Ray handles connections.
-//  // It may be on connection level by user levels in 'levels', or global settings in 'system.'
-//  "policy": {
-//    // Connection policys by user levels
-//    "levels": {
-//      "0": {
-//        "uplinkOnly": 0,
-//        "downlinkOnly": 0
-//      }
-//    },
-//    "system": {
-//      "statsInboundUplink": false,
-//      "statsInboundDownlink": false,
-//      "statsOutboundUplink": false,
-//      "statsOutboundDownlink": false
-//    }
-//  },
+  //  "dns": {
+  //    // Static hosts, similar to hosts file.
+  //    "hosts": {
+  //      // Match v2ray.com to another domain on CloudFlare. This domain will be used when querying IPs for v2ray.com.
+  //      "domain:v2ray.com": "www.vicemc.net",
+  //      // The following settings help to eliminate DNS poisoning in mainland China.
+  //      // It is safe to comment these out if this is not the case for you.
+  //      "domain:github.io": "pages.github.com",
+  //      "domain:wikipedia.org": "www.wikimedia.org",
+  //      "domain:shadowsocks.org": "electronicsrealm.com"
+  //    },
+  //    "servers": [
+  //      "1.1.1.1",
+  //      {
+  //        "address": "114.114.114.114",
+  //        "port": 53,
+  //        // List of domains that use this DNS first.
+  //        "domains": [
+  //          "geosite:cn"
+  //        ]
+  //      },
+  //      "8.8.8.8",
+  //      "localhost"
+  //    ]
+  //  },
+  //  // Policy controls some internal behavior of how V2Ray handles connections.
+  //  // It may be on connection level by user levels in 'levels', or global settings in 'system.'
+  //  "policy": {
+  //    // Connection policys by user levels
+  //    "levels": {
+  //      "0": {
+  //        "uplinkOnly": 0,
+  //        "downlinkOnly": 0
+  //      }
+  //    },
+  //    "system": {
+  //      "statsInboundUplink": false,
+  //      "statsInboundDownlink": false,
+  //      "statsOutboundUplink": false,
+  //      "statsOutboundDownlink": false
+  //    }
+  //  },
   // Stats enables internal stats counter.
   // This setting can be used together with Policy and Api.
   //"stats":{},
