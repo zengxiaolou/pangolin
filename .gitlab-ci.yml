@@ -12,7 +12,8 @@ publish:
   script:
     - sudo docker build --pull -t $CI_REGISTRY_IMAGE:latest docker
     - sudo docker push $CI_REGISTRY_IMAGE:latest
-
+  only:
+    - master
 
 deploy:
   stage: deploy
@@ -20,3 +21,5 @@ deploy:
     - shell
   script:
     - ./deploy.sh
+  only:
+    - master
