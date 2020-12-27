@@ -24,7 +24,7 @@ else
         https://download.docker.com/linux/centos/docker-ce.repo
 
     echo "install docker engine"
-    sudo yum install docker-ce docker-ce-cli containerd.io
+    sudo yum install -y docker-ce docker-ce-cli containerd.io
 
     echo "start docker"
     sudo systemctl start docker
