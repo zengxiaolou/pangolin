@@ -1,5 +1,6 @@
 stages:
   - publish
+  - deploy
 
 before_script:
   - sudo -n docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
@@ -11,3 +12,11 @@ publish:
   script:
     - sudo docker build --pull -t $CI_REGISTRY_IMAGE:latest docker
     - sudo docker push $CI_REGISTRY_IMAGE:latest
+
+
+deploy:
+  stage: deploy
+  tags:
+    - shell
+  script:
+    - ./deploy.sh
