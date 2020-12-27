@@ -1,24 +1,25 @@
 stages:
   - publish
-
-variables:
-  # Use TLS https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#tls-enabled
-  DOCKER_HOST: tcp://docker:2376
-  DOCKER_TLS_CERTDIR: "/certs"
-  CONTAINER_IMAGE_TAG: $CI_REGISTRY_IMAGE:latest
+  - deploy
 
 before_script:
-  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  - sudo -n docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
 
 publish:
   stage: publish
-  image: docker:19.03.12
-  services:
-    - docker:19.03.12-dind
   tags:
-    - docker
+    - shell
   script:
-    - docker build --pull -t $CONTAINER_IMAGE_TAG docker
-    - docker push $CONTAINER_IMAGE_TAG
+    - sudo docker build --pull -t $CI_REGISTRY_IMAGE:latest docker
+    - sudo docker push $CI_REGISTRY_IMAGE:latest
+  only:
+    - master
+
+deploy:
+  stage: deploy
+  tags:
+    - shell
+  script:
+    - ./deploy.sh
   only:
     - master
