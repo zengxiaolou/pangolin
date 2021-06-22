@@ -5,31 +5,42 @@ stages:
 before_script:
   - sudo -n docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
 
-publish:
+publish_inside:
   stage: publish
   tags:
     - shell
   script:
-    - sudo docker build --pull -t $CI_REGISTRY_IMAGE:latest docker
-    - sudo docker push $CI_REGISTRY_IMAGE:latest
+    - sudo docker build --pull -t $CI_REGISTRY_IMAGE/inside:latest inside
+    - sudo docker push $CI_REGISTRY_IMAGE/inside:latest
   only:
     - master
 
-deploy_hk:
+publish_outside:
+  stage: publish
+  tags:
+    - shell
+  script:
+    - sudo docker build --pull -t $CI_REGISTRY_IMAGE/outside:latest outside
+    - sudo docker push $CI_REGISTRY_IMAGE/outside:latest
+  only:
+    - master
+
+
+deploy_inside:
   stage: deploy
   tags:
     - shell
-    - vpn-hk
+    - gitlab
   script:
     - ./deploy.sh
   only:
     - master
 
-deploy_tw:
+deploy_outside:
   stage: deploy
   tags:
     - shell
-    - vpn-tw
+    - tokyo
   script:
     - ./deploy.sh
   only:
