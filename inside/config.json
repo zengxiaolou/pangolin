@@ -28,6 +28,24 @@
   ],
   "outbounds": [
     {
+      "port": 1588,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "fbe51d31-74d2-43cf-ad4e-60c2b1049bff",
+            "alterId": 32
+          }
+        ]
+      },
+      "tag": "out-0",
+      "streamSettings": {
+        "network": "tcp",
+        "security": "none",
+        "tcpSettings": {}
+      }
+    },
+    {
       "tag": "direct",
       "protocol": "freedom",
       "settings": {}
