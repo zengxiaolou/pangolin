@@ -32,7 +32,7 @@ deploy_inside:
     - shell
     - gitlab
   script:
-    - ./deploy_outside.sh
+    - ./deploy_inside.sh
   only:
     - master
 
@@ -42,6 +42,6 @@ deploy_outside:
     - shell
     - tokyo
   script:
-    - ./deploy_inside.sh
+    - ./deploy_outside.sh
   only:
     - master
