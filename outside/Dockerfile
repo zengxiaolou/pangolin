@@ -2,4 +2,4 @@ FROM v2fly/v2fly-core
 
 COPY config.json /etc/v2ray/
 
-EXPOSE 1588
+EXPOSE 1589
