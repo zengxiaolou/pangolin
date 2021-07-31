@@ -18,7 +18,8 @@ publish_inside:
 publish_outside:
   stage: publish
   tags:
-    - tokyo, vpn
+    - tokyo
+    - vpn
   script:
     - sudo docker build --pull -t $CI_REGISTRY_IMAGE/outside:latest outside
     - sudo docker push $CI_REGISTRY_IMAGE/outside:latest
@@ -39,7 +40,7 @@ deploy_inside:
 deploy_outside:
   stage: deploy
   tags:
-    - shell
+    - vpn
     - tokyo
   script:
     - ./deploy_outside.sh
