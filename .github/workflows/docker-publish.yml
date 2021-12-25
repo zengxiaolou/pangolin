@@ -69,7 +69,7 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: inside
+          tags: ${{ steps.meta.outputs.tags }}_inside
           labels: ${{ steps.meta.outputs.labels }}
           file: ./inside/Dockerfile
 
@@ -81,6 +81,6 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: outside
+          tags: ${{ steps.meta.outputs.tags }}_outside
           labels: ${{ steps.meta.outputs.labels }}
           file: ./outside/Dockerfile
